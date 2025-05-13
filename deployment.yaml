@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rapidapp-deployment
+  namespace: production
+  labels:
+    app: rapidapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rapidapp
+  template:
+    metadata:
+      labels:
+        app: rapidapp
+    spec:
+      containers:
+      - name: rapidapp-container
+        image: tamim57/rapidapp:latest  
+        ports:
+        - containerPort: 8000         
